@@ -1,0 +1,5 @@
+<video width="800" height="600" [src]="getSantizeUrl(selectedVideo[0])" autoplay controls>
+</video>
+<br />
+<input type="file" accept="video/*" class="file-input" (change)="onFileSelected($event)" #fileUpload multiple>
+<button (click)="onProcessClicked()">Process</button>
