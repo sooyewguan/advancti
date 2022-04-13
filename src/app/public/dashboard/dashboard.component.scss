@@ -1,0 +1,136 @@
+main {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	display: flex;
+	justify-content: center;
+
+	// display: flex;
+}
+
+.camera-toolbar {
+	height: 48px;
+	// margin: 0 auto;
+	margin: 8px 4px 8px 0;
+	border: 1px solid lightgray;
+	border-radius: 8px;
+
+	.container {
+		// box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		// border: 1px solid red;
+		button {
+			width: 48px;
+			height: 48px;
+			line-height: 0;
+
+			// border: 1px solid red;
+			// margin-left: 8px;
+			// margin-right: 8px;
+		}
+	}
+}
+
+.zones {
+	margin: 8px 4px 8px 0;
+	border: 1px solid lightgray;
+	border-radius: 8px;
+
+	.container {
+		padding-bottom: 8px;
+		.title {
+			padding: 8px;
+			font-weight: bold;
+
+			background-color: whitesmoke;
+		}
+
+		.name {
+			padding: 0 8px;
+
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+ 
+			.mat-icon {
+				&:hover {
+					opacity: 0.5;
+					cursor: pointer;
+				}
+			}
+		}
+	}
+}
+
+.camera-canvas {
+	flex-grow: 1;
+
+	padding: 16px;
+	margin: 8px 0 8px 4px;
+
+	border: 1px solid lightgray;
+	border-radius: 8px;
+
+	.container {
+		position: relative;
+		// width: 640px;
+		// height: 360px;
+
+		margin: auto;
+
+		app-camera-player {
+			position: absolute;
+			left: 0;
+			z-index: 0;
+		}
+
+		canvas {
+			border: 1px solid red;
+
+			position: absolute;
+			left: 0;
+			z-index: 1;
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
+	}
+
+	.traffic-stat {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		z-index: 999;
+
+		background-color: rgba($color: #000000, $alpha: 0.5);
+		border: 1px solid white;
+		border-radius: 8px;
+
+		table {
+			// display: flex;
+			// justify-content: left;
+			// align-items: center;
+
+			padding: 2px 4px;
+
+			td {
+				color: white;
+				text-align: left;
+				
+				padding: 2px 4px;
+				// // font-size: 36px;
+				// display: flex;
+				// justify-content: center;
+				// align-items: center;
+
+				// border: 1px solid red;
+			}
+		}
+	}
+}

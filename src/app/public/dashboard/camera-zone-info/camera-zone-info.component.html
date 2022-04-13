@@ -1,0 +1,38 @@
+<!-- <div mat-dialog-title>
+	<span>Edit Info</span>
+	<button mat-icon-button mat-dialog-close>
+		<mat-icon aria-label="Close">close</mat-icon>
+	</button>
+</div>
+
+<div mat-dialog-content>
+	<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+		<mat-form-field appearance="outline">
+			<mat-label>Name</mat-label>
+			<input matInput placeholder="name" formControlName="name" required/>
+		</mat-form-field>
+
+		<button type="submit" mat-raised-button cdkFocusInitial color="primary" [disabled]="form.invalid">Submit</button>
+	</form>
+</div> -->
+<main>
+	<ng-template [ngIf]="data?.lines != null" [ngIfElse]="zoneInput">
+		<mat-form-field appearance="outline" class="no-padding grow">
+			<mat-label>Name</mat-label>
+			<mat-select [(ngModel)]="name">
+				<mat-option *ngFor="let i of list" [value]="i">{{i}}</mat-option>
+			</mat-select>
+		</mat-form-field>
+	</ng-template>
+
+	<ng-template #zoneInput>
+		<mat-form-field appearance="outline" class="no-padding grow">
+			<mat-label>Name</mat-label>
+			<input matInput placeholder="name" [(ngModel)]="name" required />
+		</mat-form-field>
+	</ng-template>
+	<button type="submit" mat-icon-button (click)="onSubmit()">
+		<mat-icon>save</mat-icon>
+	</button>
+</main>

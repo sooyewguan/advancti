@@ -5,6 +5,7 @@
 export const environment = {
 	production: false,
 	api: 'http://localhost:9001/api/v1',
+	ws: 'ws://localhost:8080',
 };
 
 /*

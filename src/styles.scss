@@ -1,15 +1,80 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+	margin: 0;
+	height: 100%;
 
-html, body { 
-    height: 100%; 
-}
-body { 
-    margin: 0; 
-    font-family: Roboto, "Helvetica Neue", sans-serif; 
-    background-color: whitesmoke;
+	font-family: "Open Sans", "Exo", "Roboto";
 }
 
-.mat-toolbar{
-    background-color: #41585c;
-    color: white;
+.mat-drawer-content {
+	background-color: white;
 }
+
+mat-dialog-container {
+	padding: 0 !important;
+
+	.mat-dialog-title {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		padding: 8px 8px 8px 16px;
+		background: rgba(0, 0, 0, 0.03);
+	}
+
+	.mat-dialog-content {
+		max-height: 80vh;
+
+		padding: 0 12px !important;
+		margin: 0 !important;
+
+		form {
+			max-height: 80vh;
+			overflow: visible;
+
+			display: flex;
+			flex-direction: column;
+
+			button {
+				width: 100%;
+				margin-top: 12px;
+				margin-bottom: 12px;
+			}
+		}
+	}
+
+	.mat-dialog-footer {
+		padding: 0 12px !important;
+		margin: 0 !important;
+	}
+}
+
+mat-form-field[hidden] {
+	display: none;
+}
+
+mat-form-field.no-label {
+	.mat-form-field-infix {
+		border-top: 0.5em solid transparent;
+	}
+}
+
+mat-form-field.no-padding {
+	.mat-form-field-wrapper {
+		padding-bottom: 0;
+	}
+}
+
+mat-form-field.grow{
+	width: 100%;
+	// .mat-form-field-wrapper {
+	// 	padding-bottom: 0;
+	// }
+}
+
+button.grow {
+	width: 100%;
+}
+
+// html, body { height: 100%; }
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

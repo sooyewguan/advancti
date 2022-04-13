@@ -11,10 +11,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CameraZoneInfoComponent } from './dashboard/camera-zone-info/camera-zone-info.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
 	declarations: [
 		DashboardComponent,
+		CameraZoneInfoComponent
 	],
 	imports: [
 		CommonModule,
@@ -27,6 +31,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 		MatInputModule,
 		MatButtonModule,
 		MatSelectModule,
+		MatDialogModule,
+		MatListModule
 	]
 })
 export class PublicModule { }

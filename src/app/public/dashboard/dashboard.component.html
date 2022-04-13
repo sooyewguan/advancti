@@ -1,5 +1,82 @@
-<video width="800" height="600" [src]="getSantizeUrl(selectedVideo[0])" autoplay controls>
-</video>
-<br />
-<input type="file" accept="video/*" class="file-input" (change)="onFileSelected($event)" #fileUpload multiple>
-<button (click)="onProcessClicked()">Process</button>
+<main>
+	<section>
+		<div class=camera-toolbar>
+			<div class="container">
+				<button mat-icon-button matTooltip="Add ROI" (click)="addCameraZone()">
+					<mat-icon>aspect_ratio</mat-icon>
+				</button>
+
+				<button mat-icon-button matTooltip="Add Lane" (click)="addCameraLane()">
+					<mat-icon>add_road</mat-icon>
+				</button>
+
+				<button mat-icon-button matTooltip="Add Counting Line" (click)="addCameraLine()">
+					<mat-icon>linear_scale</mat-icon>
+				</button>
+			</div>
+		</div>
+		<div class="zones">
+			<div class="container">
+				<div class="title">ROI</div>
+				<div class="name" *ngFor="let zone of zones; let i = index;">
+					<span>{{ zone.name }}</span>
+					<span>
+						<mat-icon color="primary" (click)="onEditClicked()">edit</mat-icon>
+						<mat-icon color="warn" (click)="onDeleteClicked()">delete</mat-icon>
+					</span>
+				</div>
+			</div>
+			<div class="container">
+				<div class="title">Lane</div>
+				<div class="name" *ngFor="let lane of lanes; let i = index;">
+					<span>{{ lane.name }}</span>
+					<span>
+						<mat-icon color="primary" (click)="onEditClicked()">edit</mat-icon>
+						<mat-icon color="warn" (click)="onDeleteClicked()">delete</mat-icon>
+					</span>
+				</div>
+			</div>
+			<div class="container">
+				<div class="title">Counting Line</div>
+				<div class="name" *ngFor="let line of lines; let i = index;">
+					<span>{{ line.name }}</span>
+					<span>
+						<mat-icon color="primary" (click)="onEditClicked()">edit</mat-icon>
+						<mat-icon color="warn" (click)="onDeleteClicked()">delete</mat-icon>
+					</span>
+				</div>
+			</div>
+		</div>
+		<mat-selection-list [(ngModel)]="selectedVideo">
+			<ng-container *ngFor="let directory of directories">
+				<ng-container *ngIf="directory.type === 'directory'">
+					<ng-container *ngFor="let file of directory.children">
+						<mat-list-option *ngIf="file.type === 'file'" [value]="directory.name + '/' + file.name">
+							<mat-icon mat-list-icon>movie</mat-icon>
+							<div mat-line>{{directory.name}}/{{file.name}}</div>
+						</mat-list-option>
+					</ng-container>
+				</ng-container>
+			</ng-container>
+		</mat-selection-list>
+		<div class="zones">
+			<button class="grow" mat-raised-button color="primary" (click)="onSaveClicked()">Process</button>
+		</div>
+	</section>
+	<section>
+		<div class="camera-canvas">
+			<div class="container">
+				<img [width]="width" [height]="height" [src]="background">
+				<canvas #points (mousemove)="onMouseMove($event)" (mouseup)="onMouseUp($event)"
+					(mousedown)="onMouseDown($event)">
+					Your browser doesn't support canvas
+				</canvas>
+			</div>
+		</div>
+		<div>
+			<!-- <input type="file" accept="video/*" class="file-input" (change)="onFileSelected($event)" #fileUpload multiple>
+			<button (click)="onProcessClicked()">Process</button> -->
+		</div>
+	</section>
+
+</main>

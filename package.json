@@ -1,13 +1,15 @@
 {
   "name": "advancti",
   "version": "0.0.0",
+  "main": "app.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "start:hmr": "ng serve --hmr",
+	 "start:electron": "ng build --base-href ./ && electron .",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "build:prod": "ng build --configuration production --aot --vendor-chunk --common-chunk --delete-output-path --build-optimizer --base-href /resident/",
+    "build:prod": "ng build --configuration production --aot --vendor-chunk --common-chunk --delete-output-path --build-optimizer",
     "test": "ng test"
   },
   "private": true,
@@ -33,6 +35,7 @@
     "@angular/compiler-cli": "~13.2.0",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
+    "electron": "^18.0.3",
     "jasmine-core": "~4.0.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
