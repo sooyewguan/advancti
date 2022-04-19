@@ -9,11 +9,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from '@angular/cdk/layout';
 import { OverlayModule } from '@angular/cdk/overlay';
 
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+
+const config: SocketIoConfig = { url: 'http://127.0.0.1', options: {} };
+
 @NgModule({
 	declarations: [
 		AppComponent
 	],
 	imports: [
+		SocketIoModule.forRoot(config),
 		AppRoutingModule,
 		LayoutModule,
 		OverlayModule,
